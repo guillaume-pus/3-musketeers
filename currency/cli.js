@@ -5,6 +5,7 @@ const ora = require('ora');
 
 const argv = process.argv.slice(2);
 
+// Function which print an example of the program and the Readme.
 function help () {
   console.log(
     [
@@ -18,12 +19,14 @@ function help () {
   );
 }
 
+// Make the funny spinner -\|/-
 const spinner = ora('Fetching exchange data..');
 
+// Function which process and print the result
 async function start (opts) {
   try {
     const {amount, from, to} = opts;
-    const result = await currency(opts);
+    const result = await currency(opts); 
 
     spinner.stop();
     console.log(`${amount} ${from} = ${result} ${to}`);
